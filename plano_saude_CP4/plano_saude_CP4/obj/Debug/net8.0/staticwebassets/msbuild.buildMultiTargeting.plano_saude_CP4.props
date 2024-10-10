@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\plano_saude_CP4.props" />
+</Project>

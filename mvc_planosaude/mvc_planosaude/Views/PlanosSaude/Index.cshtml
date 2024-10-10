@@ -1,0 +1,46 @@
+﻿@model IEnumerable<mvc_planosaude.Models.PlanoSaude>
+
+@{
+    ViewData["Title"] = "Lista de Planos de Saúde";
+}
+
+<h2>Planos de Saúde</h2>
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["ErrorMessage"]
+    </div>
+}
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Novo Plano</a>
+</p>
+
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Nome do Plano</th>
+            <th>Código</th>
+            <th>Cobertura</th>
+            <th>Opções</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var plano in Model)
+        {
+            <tr>
+                <td>@plano.Nome</td>
+                <td>@plano.Codigo</td>
+                <td>@plano.Cobertura</td>
+                <td>
+                    <a class="btn btn-info" asp-action="Update" asp-route-id="@plano.Id">Editar</a>
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@plano.Id"
+                       onclick="return confirm('Tem certeza que deseja excluir este plano de saúde?');">
+                        Excluir
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

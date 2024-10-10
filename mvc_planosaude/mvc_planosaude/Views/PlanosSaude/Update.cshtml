@@ -1,0 +1,38 @@
+﻿@model mvc_planosaude.Models.PlanoSaude
+
+@{
+    ViewData["Title"] = "Editar Plano de Saúde";
+}
+
+<h2>Editar Plano de Saúde</h2>
+
+
+<form asp-action="Update" method="post">
+   
+    <input type="hidden" asp-for="Id" />
+
+    <div class="form-group">
+        <label asp-for="Nome"></label>
+        <input class="form-control" asp-for="Nome" required />
+        <span asp-validation-for="Nome" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Codigo"></label>
+        <input class="form-control" asp-for="Codigo" required />
+        <span asp-validation-for="Codigo" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Cobertura"></label>
+        <input class="form-control" asp-for="Cobertura" required />
+        <span asp-validation-for="Cobertura" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Salvar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

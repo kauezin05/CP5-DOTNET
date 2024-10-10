@@ -1,0 +1,29 @@
+﻿@model PacientePlano
+
+<h2>@ViewData["Title"]</h2>
+
+@if (ViewBag.Pacientes == null || !ViewBag.Pacientes.Any())
+{
+    <div class="alert alert-danger">Nenhum paciente disponível para seleção.</div>
+}
+
+@if (ViewBag.Planos == null || !ViewBag.Planos.Any())
+{
+    <div class="alert alert-danger">Nenhum plano de saúde disponível para seleção.</div>
+}
+
+<form asp-action="Update">
+    <input type="hidden" asp-for="Id" />
+
+    <div>
+        <label asp-for="PacienteId"></label>
+        <select asp-for="PacienteId" asp-items="@(new SelectList(ViewBag.Pacientes, "Id", "NomeCompleto"))"></select>
+    </div>
+
+    <div>
+        <label asp-for="PlanoSaudeId"></label>
+        <select asp-for="PlanoSaudeId" asp-items="@(new SelectList(ViewBag.Planos, "Id", "Nome"))"></select>
+    </div>
+
+    <button type="submit">Salvar</button>
+</form>

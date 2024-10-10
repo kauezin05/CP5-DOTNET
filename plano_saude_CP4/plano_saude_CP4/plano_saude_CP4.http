@@ -1,0 +1,6 @@
+@plano_saude_CP4_HostAddress = http://localhost:5183
+
+GET {{plano_saude_CP4_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

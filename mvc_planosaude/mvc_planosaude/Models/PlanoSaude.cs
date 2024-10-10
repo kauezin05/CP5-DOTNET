@@ -1,0 +1,16 @@
+﻿using mvc_planosaude.Models;
+
+namespace mvc_planosaude.Models
+{
+    public class PlanoSaude
+    {
+        public int Id { get; set; }
+
+        public string Nome{ get; set; }
+
+        public string Codigo { get; set; }
+
+        public string Cobertura { get; set; }
+   
+    }
+}
